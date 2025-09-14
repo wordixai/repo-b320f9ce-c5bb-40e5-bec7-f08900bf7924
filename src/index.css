@@ -2,17 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-The @apply directive should not be used with the group utility class.
-*/
-
 @layer base {
   :root {
-   
+    --background: 220 13% 9%;
+    --foreground: 220 9% 95%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 95%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 95%;
+    --primary: 142 86% 60%;
+    --primary-foreground: 220 13% 9%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 85%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 60%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 9% 85%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 95%;
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 142 86% 60%;
+    --radius: 0.75rem;
+    
+    /* Neon accent colors */
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 270 100% 70%;
+    --neon-green: 120 100% 50%;
+    --neon-pink: 320 100% 70%;
+    --neon-orange: 30 100% 60%;
+    
+    /* Animation timing */
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-power: cubic-bezier(0.77, 0, 0.175, 1);
   }
-
-  .dark {
-
+  
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  
+  /* Neon glow utilities */
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.5);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--neon-green) / 0.5);
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(45deg, 
+      hsl(var(--neon-cyan)), 
+      hsl(var(--neon-purple)), 
+      hsl(var(--neon-green))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Tech grid background */
+  .tech-grid {
+    background-image: 
+      linear-gradient(rgba(66, 184, 131, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66, 184, 131, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }
